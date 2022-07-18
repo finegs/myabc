@@ -1,0 +1,26 @@
+----------------------------------------------------------------
+Mon Jul 18 19:19:37 KST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0182-10d2-0b06-00000b3dfdf0 
+on database directory memory:D:\Dev\git\myvue\myabc\demo\374e3a52-aace-49f7-a0a1-d2895fcd62d1 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@28c97a5 
+Loaded from file:/C:/Users/fineg/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.2+9
+user.dir=d:\Dev\git\myvue\myabc\demo
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jul 18 19:19:41 KST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 0ddd00a9-0182-10d2-0b06-00000b3dfdf0 
+on database directory memory:D:\Dev\git\myvue\myabc\demo\62eb3706-52da-4e27-aca4-ff3fc179de6f with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@28c97a5 
+Loaded from file:/C:/Users/fineg/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.2+9
+user.dir=d:\Dev\git\myvue\myabc\demo
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
