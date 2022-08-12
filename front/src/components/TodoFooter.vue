@@ -1,14 +1,14 @@
 <template>
   <div class="clearAllContainer">
-    <span class="clearAllBtn" @click="clearTodo">Clear All</span>
+    <span class="clearAllBtn" @click="clearTodoAll">Clear All</span>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
-    clearTodo() {
-      localStorage.clear();
+    clearTodoAll() {
+      this.$emit("clearTodoAll");
     }
   }
 }

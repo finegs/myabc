@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput></TodoInput>
-    <TodoList></TodoList>
-    <TodoFooter></TodoFooter>
+    <TodoInput v-on:addTodo="addTodo"></TodoInput>
+    <TodoList v-bind:propsdata="todos" @removeTodo="removeTodo"></TodoList>
+    <TodoFooter v-on:clearTodoAll="clearTodoAll"></TodoFooter>
   </div>
 </template>
 
@@ -13,18 +13,42 @@ import TodoHeader from "./components/TodoHeader.vue"
 import TodoInput from "./components/TodoInput.vue"
 import TodoList from "./components/TodoList.vue"
 import TodoFooter from "./components/TodoFooter.vue"
+import { Console } from "console"
 
 export default {
+  data() {
+    return {
+      todos: []
+    }
+  },
+  methods: {
+    addTodo(newTodo) {
+      localStorage.setItem(newTodo, newTodo);
+      this.todos.push(newTodo);
+    },
+    removeTodo(todo, index) {
+      localStorage.removeItem(todo);
+      this.todos.splice(index, 1);
+    },
+    clearTodoAll() {
+      localStorage.clear();
+      this.todos = [];
+    }
+  },
   components:  {
     "TodoHeader": TodoHeader,
     "TodoInput": TodoInput,
     "TodoList": TodoList,
-    "TodoFooter": TodoFooter,
-    TodoHeader,
-    TodoInput,
-    TodoList,
-    TodoFooter
+    "TodoFooter": TodoFooter
+  },
+  created() {
+    if(localStorage.length > 0) {
+      for(var i =0;i<localStorage.length;i++) {
+        this.todos.push(localStorage.key(i));
+      }
+    }
   }
+
 }
 </script>
 

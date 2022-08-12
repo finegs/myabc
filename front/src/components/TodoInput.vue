@@ -1,31 +1,47 @@
 <template>
   <div class="inputBox shadow">
-    <input type="text" v-model="newTodoItem" placeholder="Type what you have to do" 
+    <input type="text" v-model="newTodo" placeholder="Type what you have to do" 
       v-on:keyup.enter="addTodo">
       <span class="addContainer" v-on:click="addTodo">
         <i class="addBtn fas fa-plus" aria-hidden="true"></i>
       </span>
+
+      <modal v-if="showModal" @close="showModal = false">
+        <h3 slot="header">Warniiiiiiiiiiiiing</h3>
+        <span slot="footer" @click="showModal = false">
+          Enter TODO
+          <i class="closeModalBtn fas fa-times" aria-hidden="true"></i>
+        </span>
+      </modal>
   </div>
 </template>
 
 <script>
+import Modal from "./common/Modal.vue"
+
 export default {
   data() {
     return {
-      newTodoItem : ''
+      newTodo: '',
+      showModal: false
     }
   },
   methods: {
     addTodo() {
-      if(this.newTodoItem !== "") {
-        let val = this.newTodoItem && this.newTodoItem.trim();
-        localStorage.setItem(val, val);
+      if(this.newTodo !== "") {
+        let value = this.newTodo && this.newTodo.trim();
+        this.$emit("addTodo", value);
         this.cleanInput();
+      } else {
+        this.showModal = !this.showModal;
       }
     },
     cleanInput() {
-      this.newTodoItem = '';
+      this.newTodo = '';
     }
+  },
+  components : {
+    Modal: Modal
   }
 }
 </script>

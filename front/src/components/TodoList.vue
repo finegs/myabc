@@ -1,42 +1,50 @@
 <template>
   <section>
-    <ul>
-      <li v-for="todoItem in todoItems" class="shadow">
+    <transition-group name="list" tag="ul">
+      <li v-for="(todo, index) in propsdata" :key="todo" class="shadow">
         <i class="checkBtn fas fa-check" aria-hidden="true"></i>
-        {{todoItem}}
-        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+        {{todo}}
+        <span class="removeBtn" type="button" @click="removeTodo(todo, index)">
           <i class="far fa-trash-alt" aria-hidden="true"></i>
         </span>
       </li>
-<!--      <li v-for="todoItem in todoItems">{{todoItem}}</li> -->
+    </transition-group>
+    <!--
+    <ul>
+      <li v-for="(todo,index) in propsdata" class="shadow">
+        <i class="checkBtn fas fa-check" aria-hidden="true"></i>
+        {{todo}}
+        <span class="removeBtn" type="button" @click="removeTodo(todo, index)">
+          <i class="far fa-trash-alt" aria-hidden="true"></i>
+        </span>
+      </li>
     </ul>
+    -->
   </section>
 </template>
 
 <script>
+
 export default {
-  data() {
-    return {
-      todoItems: []
-    }
-  },
+  props: [
+    'propsdata'
+  ],
   methods: {
-    removeTodo(todoItem, index) {
-      localStorage.removeItem(todoItem);
-      this.todoItems.splice(index, 1);
+    removeTodo(todo, index) {
+      this.$emit('removeTodo', todo, index);
     }
   },
-  created() {
-    if(localStorage.length > 0) {
-      for(var i =0;i<localStorage.length;i++) {
-        this.todoItems.push(localStorage.key(i));
-      }
-    }
-  }
 }
 </script>
 
 <style scoped>
+  .list-enter-active, .list-leave-active {
+    transition:all 1s;
+  }
+  .list-enter, .list-leave-to {
+    opacity : 0;
+    transform:transilateY(30px);
+  }
   ul {
     list-style-type: none;
     padding-left:0px;
