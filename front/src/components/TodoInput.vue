@@ -6,6 +6,24 @@
         <i class="addBtn fas fa-plus" aria-hidden="true"></i>
       </span>
 
+      <Teleport to="body">
+        <modal :show="showModal" @close="showModal = false">
+          <template #header>
+            <h3>Warning</h3>
+          </template>
+          <template #body>
+            <h3>Enter TODO</h3>
+          </template>
+          <template #footer>
+            <h3></h3>
+            <button
+              class="modal-default-button"
+              @click="showModal = false"
+            >OK</button>
+          </template>
+        </modal>
+      </Teleport>
+      <!--
       <modal v-if="showModal" @close="showModal = false">
         <h3 slot="header">Warniiiiiiiiiiiiing</h3>
         <span slot="footer" @click="showModal = false">
@@ -13,6 +31,7 @@
           <i class="closeModalBtn fas fa-times" aria-hidden="true"></i>
         </span>
       </modal>
+      -->
   </div>
 </template>
 
