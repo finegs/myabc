@@ -30,10 +30,10 @@ export default {
     'propsdata'
   ],
   methods: {
-    removeTodo(todo, index) {
-      this.$emit('removeTodo', todo, index);
+    removeTodo (todo, index) {
+      this.$emit('removeTodo', todo, index)
     }
-  },
+  }
 }
 </script>
 
@@ -46,6 +46,7 @@ export default {
     transform:transilateY(30px);
   }
   ul {
+    height: 35%;
     list-style-type: none;
     padding-left:0px;
     margin-top:0;
@@ -54,22 +55,23 @@ export default {
 
   li {
     display: flex;
-    min-height: 50px;
-    height: 50px;
-    line-height: 50px;
+    min-height: 25px;
+    height: 25px;
+    line-height: 25px;
     margin: 0.5rem 0;
     padding: 0 0.0rem;
     background: white;
-    border-radius: 5px;
+    border-radius: 3px;
   }
 
   .checkBtn {
-    line-height: 45px;
+    line-height: 25px;
     color:#62acde;
-    margin-right: 5px;
+    margin-right: 3px;
   }
 
   .removeBtn {
+    line-height: 25px;
     margin-left : auto;
     color : #de4343;
   }

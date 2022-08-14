@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@mdi/font": "5.9.55",
+    "@revolist/vue3-datagrid": "^3.2.6",
     "console-browserify": "^1.2.0",
     "core-js": "^3.8.3",
     "node-polyfill-webpack-plugin": "^2.0.1",

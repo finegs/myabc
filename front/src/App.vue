@@ -3,48 +3,51 @@
     <TodoHeader></TodoHeader>
     <TodoInput v-on:addTodo="addTodo"></TodoInput>
     <TodoList v-bind:propsdata="todos" @removeTodo="removeTodo"></TodoList>
+    <TodoGrid class=grid></TodoGrid>
     <TodoFooter v-on:clearTodoAll="clearTodoAll"></TodoFooter>
   </div>
 </template>
 
 <script>
 
-import TodoHeader from "./components/TodoHeader.vue"
-import TodoInput from "./components/TodoInput.vue"
-import TodoList from "./components/TodoList.vue"
-import TodoFooter from "./components/TodoFooter.vue"
-import { Console } from "console"
+import TodoHeader from './components/TodoHeader.vue'
+import TodoInput from './components/TodoInput.vue'
+import TodoList from './components/TodoList.vue'
+import TodoFooter from './components/TodoFooter.vue'
+import TodoGrid from './components/TodoGrid.vue'
+import { Console } from 'console'
 
 export default {
-  data() {
+  data () {
     return {
       todos: []
     }
   },
   methods: {
-    addTodo(newTodo) {
-      localStorage.setItem(newTodo, newTodo);
-      this.todos.push(newTodo);
+    addTodo (newTodo) {
+      localStorage.setItem(newTodo, newTodo)
+      this.todos.push(newTodo)
     },
-    removeTodo(todo, index) {
-      localStorage.removeItem(todo);
-      this.todos.splice(index, 1);
+    removeTodo (todo, index) {
+      localStorage.removeItem(todo)
+      this.todos.splice(index, 1)
     },
-    clearTodoAll() {
-      localStorage.clear();
-      this.todos = [];
+    clearTodoAll () {
+      localStorage.clear()
+      this.todos = []
     }
   },
-  components:  {
-    "TodoHeader": TodoHeader,
-    "TodoInput": TodoInput,
-    "TodoList": TodoList,
-    "TodoFooter": TodoFooter
+  components: {
+    TodoHeader: TodoHeader,
+    TodoInput: TodoInput,
+    TodoList: TodoList,
+    TodoFooter: TodoFooter,
+    TodoGrid: TodoGrid
   },
-  created() {
-    if(localStorage.length > 0) {
-      for(var i =0;i<localStorage.length;i++) {
-        this.todos.push(localStorage.key(i));
+  created () {
+    if (localStorage.length > 0) {
+      for (let i = 0; i < localStorage.length; i++) {
+        this.todos.push(localStorage.key(i))
       }
     }
   }
@@ -63,6 +66,11 @@ export default {
   }
   button {
     border-style: groove;
+  }
+
+  .grid {
+    width: 100%;
+    height: 250px;
   }
 
   .shadow {
